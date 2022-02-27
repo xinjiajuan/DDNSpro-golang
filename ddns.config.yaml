@@ -1,0 +1,18 @@
+userConfig:
+#在此你可以使用多个serviceProvider字段来同时运行多个服务商的动态域名
+  - serviceProvider: dnspod
+    api_type: dnspod #tencentAPI(tencent) or DNSPod Token(dnspod),default:tencent
+    #dnspod_id: 2****
+    #dnspod_token: 25e9*************************
+    tencent_secretId: AKID************************
+    tencent_secretKey: 3pKYWD*************************
+    #networkAdapter: eth0 #可选
+    domainList: 
+      - domain: domain.com #必须
+        #networkAdapter: eth0 #可选
+        recordType: AAAA #ipv4/ipv6,default:A
+        syncTime: 10s #10s 80min 4h 可选 default:auto
+      - domain: domain.cn
+        #networkAdapter: eth0 #可选
+        recordType: AAAA #ipv4/ipv6
+        syncTime: 10s #10s 80min 4h 可选 default:auto

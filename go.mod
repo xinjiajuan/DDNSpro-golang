@@ -1,18 +1,19 @@
 module dnspro
 
-go 1.17
+go 1.18
 
 require (
+	github.com/alexflint/go-arg v1.4.3
+	github.com/kardianos/service v1.2.1
+	github.com/spf13/viper v1.10.1
 	github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common v1.0.355
 	github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/dnspod v1.0.355
 )
 
 require (
-	github.com/alexflint/go-arg v1.4.3 // indirect
 	github.com/alexflint/go-scalar v1.1.0 // indirect
 	github.com/fsnotify/fsnotify v1.5.1 // indirect
 	github.com/hashicorp/hcl v1.0.0 // indirect
-	github.com/kardianos/service v1.2.1 // indirect
 	github.com/magiconair/properties v1.8.5 // indirect
 	github.com/mitchellh/mapstructure v1.4.3 // indirect
 	github.com/pelletier/go-toml v1.9.4 // indirect
@@ -20,7 +21,6 @@ require (
 	github.com/spf13/cast v1.4.1 // indirect
 	github.com/spf13/jwalterweatherman v1.1.0 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
-	github.com/spf13/viper v1.10.1 // indirect
 	github.com/subosito/gotenv v1.2.0 // indirect
 	golang.org/x/sys v0.0.0-20211210111614-af8b64212486 // indirect
 	golang.org/x/text v0.3.7 // indirect

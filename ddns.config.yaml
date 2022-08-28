@@ -1,18 +1,24 @@
 userConfig:
 #在此你可以使用多个serviceProvider字段来同时运行多个服务商的动态域名
-  - serviceProvider: dnspod
-    api_type: dnspod #tencentAPI(tencent) or DNSPod Token(dnspod),default:tencent
-    #dnspod_id: 2****
-    #dnspod_token: 25e9*************************
-    tencent_secretId: AKID************************
-    tencent_secretKey: 3pKYWD*************************
-    #networkAdapter: eth0 #可选
-    domainList: 
-      - domain: domain.com #必须
-        #networkAdapter: eth0 #可选
-        recordType: AAAA #ipv4/ipv6,default:A
-        syncTime: 10s #10s 80min 4h 可选 default:auto
-      - domain: domain.cn
-        #networkAdapter: eth0 #可选
-        recordType: AAAA #ipv4/ipv6
-        syncTime: 10s #10s 80min 4h 可选 default:auto
+  - serviceProvider: 0 # dnspod=0 cloudflare=1 aliyun=2;,服务商编号,必填,整数,选择服务商
+    dnspod:
+      tencent_secretId: AKID************************
+      tencent_secretKey: 3pKYWD*************************
+    cloudflare:
+      authKey: aae6t3********************
+    networkAdapter: eth0 # eth0: 账号全局网卡配置; custom: 基于域名自定义网卡,必填
+    domainList: #在此你可以使用多个domain字段在同一个服务商账号下同时配置多个域名
+      #- domain: domain.cn #域名必填
+      #  networkAdapter: eth0 # 当账号全局网卡配置为 custom 时必填,填写网卡名
+       # recordType: AAAA #ipv4:A/ipv6:AAAA
+        #syncTime: 1s
+        #同步 ip 地址时间间隔,必填,
+        #有效时间单位为"ns"(纳秒),"us"(微秒)(或"µs"),"ms"(毫秒),"s"(秒),"m"(分钟),"h"(小时),
+        #格式:"30m"或"1h20m5s"
+      - domain: domain.cn #域名必填
+        networkAdapter: eth0 # 当账号全局网卡配置为 custom 时必填,填写网卡名
+        recordType: AAAA # A ipv4/ AAAA ipv6
+        syncTime: 1s
+        #同步 ip 地址时间间隔,必填,
+        #有效时间单位为"ns"(纳秒),"us"(微秒)(或"µs"),"ms"(毫秒),"s"(秒),"m"(分钟),"h"(小时),
+        #格式:"30m"或"1h20m5s"

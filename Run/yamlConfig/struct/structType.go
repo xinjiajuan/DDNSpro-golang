@@ -6,7 +6,8 @@ type DDNS_config struct {
 }
 
 type Domain struct {
-	DomainName     string `yaml:"domain"`
+	Domain         string `yaml:"domain"`
+	Subdomain      string `yaml:"subdomain"`
 	NetworkAdapter string `yaml:"networkAdapter"`
 	RecordType     string `yaml:"recordType"`
 	SyncTime       string `yaml:"syncTime"`
@@ -28,7 +29,7 @@ type User struct {
 //修改版本到此修改
 const Version string = "0.1.0"
 
-type AllDomainList struct {
+type ADomain struct {
 	ServiceProvider int
 	Token           []string
 	Domain          Domain

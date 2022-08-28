@@ -20,15 +20,15 @@ func ReadYamlConfig(configPath string) structConstant.DDNS_config {
 	}
 	return conf
 }
-func CreateDomainList(config structConstant.DDNS_config) []structConstant.AllDomainList {
-	domainlist := []structConstant.AllDomainList{}
+func CreateDomainList(config structConstant.DDNS_config) []structConstant.ADomain {
+	domainlist := []structConstant.ADomain{}
 	for i, user := range config.UserConfig {
 		if user.ServiceProvider < 0 || user.ServiceProvider > 2 {
 			fmt.Printf("错误:第%d个账号的服务商编号配置输入错误!\a", i+1)
 			return nil
 		}
 		for _, domain := range user.DomainList {
-			domainA := structConstant.AllDomainList{}
+			domainA := structConstant.ADomain{}
 			domainA.Domain = domain
 			domainA.ServiceProvider = user.ServiceProvider
 			domainA.Token = getservicetoken(user.ServiceProvider, user)
